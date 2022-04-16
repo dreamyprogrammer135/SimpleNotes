@@ -7,19 +7,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.dreamyprogrammer.simple_notes.model.repositories.TaskElement;
 
-import java.util.ArrayList;
 import java.util.List;
-import androidx.fragment.app.Fragment;
 
 public class ListNotes extends Fragment {
     public List<String> list;
@@ -28,10 +24,10 @@ public class ListNotes extends Fragment {
     private LinearLayoutManager layoutManager;
     private LinearLayout linearLayout;
 
-    private void addTaskElement(TaskElement taskElement){
+    private void addTaskElement(TaskElement taskElement) {
         Button button = new Button(getContext());
         button.setText(taskElement.getName());
-        button.setOnClickListener(v-> {
+        button.setOnClickListener(v -> {
             ((Controller) getActivity()).openNotes(taskElement);
         });
         linearLayout.addView(button);
@@ -64,7 +60,6 @@ public class ListNotes extends Fragment {
 
         linearLayout = view.findViewById(R.id.linear);
 
-
         // todo Пока константный список. Потом доделаем.
         addTaskElement(new TaskElement("Разобраться с фрагментами", 0));
         addTaskElement(new TaskElement("Купить велосипед", 0));
@@ -72,7 +67,6 @@ public class ListNotes extends Fragment {
         addTaskElement(new TaskElement("Разобрать в шкафу", 0));
         addTaskElement(new TaskElement("Сделать грядки", 0));
     }
-
 
 
     @Override
@@ -86,4 +80,5 @@ public class ListNotes extends Fragment {
     interface Controller {
         void openNotes(TaskElement taskElement);
     }
+
 }
